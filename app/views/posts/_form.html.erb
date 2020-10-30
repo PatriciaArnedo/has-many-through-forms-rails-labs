@@ -11,12 +11,10 @@
   <%= f.text_area :content %>
   <br/>
   <br/>
-  <%= f.collection_select :category_ids, Category.all, :id, :name %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
   <br/>
   <br/>
   <%= f.fields_for :categories, post.categories.build do |categories_fields| %>
-    <%= categories_fields.label :name, "Category" %>
-    <%= categories_fields.text_field :name %>
     <%= categories_fields.label :name, "Category" %>
     <%= categories_fields.text_field :name %>
   <% end %>
